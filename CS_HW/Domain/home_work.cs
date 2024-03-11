@@ -1,32 +1,58 @@
-﻿    using System;
-
-    namespace Domain
+﻿namespace Domain
+{
+    public class Website
     {
-        public class Drawing
+        private string name;
+        private string path;
+        private string description;
+        private string ipAddress;
+
+        public void SetName(string name)
         {
-            public void DrawSquare(int sideLength, char symbol)
-            {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+            this.name = name;
+        }
 
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
+        public string GetName()
+        {
+            return name;
+        }
 
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+        public void SetPath(string path)
+        {
+            this.path = path;
+        }
+
+        public string GetPath()
+        {
+            return path;
+        }
+
+        public void SetDescription(string description)
+        {
+            this.description = description;
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
+
+        public void SetIpAddress(string ipAddress)
+        {
+            this.ipAddress = ipAddress;
+        }
+
+        public string GetIpAddress()
+        {
+            return ipAddress;
+        }
+
+        public void PrintWebsiteInfo()
+        {
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Path: {path}");
+            Console.WriteLine($"Description: {description}");
+            Console.WriteLine($"IP Address: {ipAddress}");
         }
     }
+}
