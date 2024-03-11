@@ -1,32 +1,17 @@
-﻿    using System;
-
-    namespace Domain
+﻿namespace Domain
+{
+    public class Calculator
     {
-        public class Drawing
+        public static int MultiplyNumbersInRange(int start, int end)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            int result = 1;
+
+            for (int i = start; i <= end; i++)
             {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+                result *= i;
             }
+
+            return result;
         }
     }
+}
