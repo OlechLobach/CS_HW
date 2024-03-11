@@ -1,32 +1,66 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace Domain
+{
+    public class Matrix
     {
-        public class Drawing
+        private int[,] matrix;
+
+        public Matrix(int rows, int columns)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            matrix = new int[rows, columns];
+            Random rnd = new Random();
+            for (int i = 0; i < rows; i++)
             {
-                for (int i = 0; i < sideLength; i++)
+                for (int j = 0; j < columns; j++)
                 {
-                    Console.Write(symbol + " ");
+                    matrix[i, j] = rnd.Next(1, 101); 
                 }
-                Console.WriteLine();
+            }
+        }
 
-                for (int i = 0; i < sideLength - 2; i++)
+        public void DisplayMatrix()
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
+                    Console.Write(matrix[i, j] + " ");
                 }
                 Console.WriteLine();
             }
         }
+
+        public int CalculateMax()
+        {
+            int max = matrix[0, 0];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] > max)
+                    {
+                        max = matrix[i, j];
+                    }
+                }
+            }
+            return max;
+        }
+
+        public int CalculateMin()
+        {
+            int min = matrix[0, 0];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] < min)
+                    {
+                        min = matrix[i, j];
+                    }
+                }
+            }
+            return min;
+        }
     }
+}
