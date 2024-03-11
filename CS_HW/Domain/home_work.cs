@@ -1,32 +1,30 @@
-﻿    using System;
-
-    namespace Domain
+﻿namespace Domain
+{
+    public class SortingHelper
     {
-        public class Drawing
+        public static void BubbleSort(int[] array, bool ascending)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            int n = array.Length;
+            bool swapped;
+
+            do
             {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+                swapped = false;
 
-                for (int i = 0; i < sideLength - 2; i++)
+                for (int i = 1; i < n; i++)
                 {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
+                    bool shouldSwap = ascending ? array[i - 1] > array[i] : array[i - 1] < array[i];
+                    if (shouldSwap)
                     {
-                        Console.Write("  ");
+                        int temp = array[i - 1];
+                        array[i - 1] = array[i];
+                        array[i] = temp;
+                        swapped = true;
                     }
-                    Console.WriteLine(symbol);
                 }
 
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+                n--;
+            } while (swapped);
         }
     }
+}
