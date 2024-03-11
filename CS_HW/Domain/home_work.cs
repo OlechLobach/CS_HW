@@ -1,32 +1,70 @@
-﻿    using System;
-
-    namespace Domain
+﻿namespace Domain
+{
+    public class Shop
     {
-        public class Drawing
+        private string name;
+        private string address;
+        private string description;
+        private string contactPhone;
+        private string email;
+
+        public void SetName(string name)
         {
-            public void DrawSquare(int sideLength, char symbol)
-            {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+            this.name = name;
+        }
 
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
+        public string GetName()
+        {
+            return name;
+        }
 
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+        public void SetAddress(string address)
+        {
+            this.address = address;
+        }
+
+        public string GetAddress()
+        {
+            return address;
+        }
+
+        public void SetDescription(string description)
+        {
+            this.description = description;
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
+
+        public void SetContactPhone(string phone)
+        {
+            contactPhone = phone;
+        }
+
+        public string GetContactPhone()
+        {
+            return contactPhone;
+        }
+
+        public void SetEmail(string email)
+        {
+            this.email = email;
+        }
+
+        public string GetEmail()
+        {
+            return email;
+        }
+
+        public void PrintShopInfo()
+        {
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Address: {address}");
+            Console.WriteLine($"Description: {description}");
+            Console.WriteLine($"Contact Phone: {contactPhone}");
+            Console.WriteLine($"Email: {email}");
         }
     }
+}

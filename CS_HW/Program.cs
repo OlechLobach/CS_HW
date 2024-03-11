@@ -1,13 +1,19 @@
 ﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+using Domain;
+namespace MainProject
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            Domain.Shop shop = new Domain.Shop();
+            shop.SetName("Example Shop");
+            shop.SetAddress("123 Main St");
+            shop.SetDescription("This is an example shop.");
+            shop.SetContactPhone("123-456-7890");
+            shop.SetEmail("example@example.com");
+
+            shop.PrintShopInfo();
         }
     }
 }
