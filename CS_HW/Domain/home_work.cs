@@ -1,32 +1,38 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace Domain
+{
+    public class MathHelper
     {
-        public class Drawing
+        public static bool IsFibonacci(int number)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            return IsPerfectSquare(5 * number * number + 4) || IsPerfectSquare(5 * number * number - 4);
+        }
+
+        private static bool IsPerfectSquare(int number)
+        {
+            int sqrt = (int)Math.Sqrt(number);
+            return sqrt * sqrt == number;
+        }
+
+        public static bool IsPrime(int number)
+        {
+            if (number <= 1)
+                return false;
+
+            if (number == 2)
+                return true;
+
+            if (number % 2 == 0)
+                return false;
+
+            for (int i = 3; i <= Math.Sqrt(number); i += 2)
             {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+                if (number % i == 0)
+                    return false;
             }
+
+            return true;
         }
     }
+}

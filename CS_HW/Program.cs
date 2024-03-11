@@ -1,13 +1,32 @@
 ﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+using Domain;
+
+namespace MainProject
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            Console.Write("Enter a number to check if it's a Fibonacci number and prime: ");
+            int number = int.Parse(Console.ReadLine());
+
+            if (MathHelper.IsFibonacci(number))
+            {
+                Console.WriteLine($"{number} is a Fibonacci number.");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is not a Fibonacci number.");
+            }
+
+            if (MathHelper.IsPrime(number))
+            {
+                Console.WriteLine($"{number} is a prime number.");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is not a prime number.");
+            }
         }
     }
 }
