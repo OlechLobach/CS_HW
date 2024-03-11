@@ -1,13 +1,25 @@
-﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+﻿using PalindromeCheckerLibrary;
+using System;
+
+namespace PalindromeCheckerApp
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            Console.Write("Enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            bool isPalindrome = PalindromeCheckerLibrary.PalindromeChecker.IsPalindrome(number);
+
+            if (isPalindrome)
+            {
+                Console.WriteLine($"{number} is a palindrome.");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is not a palindrome.");
+            }
         }
     }
 }

@@ -1,32 +1,22 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace PalindromeCheckerLibrary
+{
+    public class PalindromeChecker
     {
-        public class Drawing
+        public static bool IsPalindrome(int number)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            int originalNumber = number;
+            int reversedNumber = 0;
+
+            while (number > 0)
             {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+                int remainder = number % 10;
+                reversedNumber = reversedNumber * 10 + remainder;
+                number = number / 10;
             }
+
+            return originalNumber == reversedNumber;
         }
     }
+}
