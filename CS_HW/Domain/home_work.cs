@@ -1,32 +1,12 @@
-﻿    using System;
+﻿using System.Linq;
 
-    namespace Domain
+namespace Domain
+{
+    public static class Filter
     {
-        public class Drawing
+        public static int[] FilterArray(int[] originalArray, int[] filterArray)
         {
-            public void DrawSquare(int sideLength, char symbol)
-            {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+            return originalArray.Where(num => !filterArray.Contains(num)).ToArray();
         }
     }
+}
