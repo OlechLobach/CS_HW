@@ -1,13 +1,15 @@
 ﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+using Domain;
+
+namespace MainProject
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            Airplane airplane = new Airplane("Boeing 747", "Boeing", 1989, "Passenger");
+
+            airplane.DisplayAirplaneInformation();
         }
     }
 }

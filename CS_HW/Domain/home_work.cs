@@ -1,32 +1,68 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace Domain
+{
+    public class Airplane
     {
-        public class Drawing
+        private string airplaneName;
+        private string manufacturer;
+        private int yearOfManufacture;
+        private string airplaneType;
+
+        public Airplane(string airplaneName, string manufacturer, int yearOfManufacture, string airplaneType)
         {
-            public void DrawSquare(int sideLength, char symbol)
-            {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+            this.airplaneName = airplaneName;
+            this.manufacturer = manufacturer;
+            this.yearOfManufacture = yearOfManufacture;
+            this.airplaneType = airplaneType;
+        }
 
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
+        public string GetAirplaneName()
+        {
+            return airplaneName;
+        }
 
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+        public void SetAirplaneName(string value)
+        {
+            airplaneName = value;
+        }
+
+        public string GetManufacturer()
+        {
+            return manufacturer;
+        }
+
+        public void SetManufacturer(string value)
+        {
+            manufacturer = value;
+        }
+
+        public int GetYearOfManufacture()
+        {
+            return yearOfManufacture;
+        }
+
+        public void SetYearOfManufacture(int value)
+        {
+            yearOfManufacture = value;
+        }
+
+        public string GetAirplaneType()
+        {
+            return airplaneType;
+        }
+
+        public void SetAirplaneType(string value)
+        {
+            airplaneType = value;
+        }
+
+        public void DisplayAirplaneInformation()
+        {
+            Console.WriteLine("Airplane Name: " + airplaneName);
+            Console.WriteLine("Manufacturer: " + manufacturer);
+            Console.WriteLine("Year of Manufacture: " + yearOfManufacture);
+            Console.WriteLine("Airplane Type: " + airplaneType);
         }
     }
+}
