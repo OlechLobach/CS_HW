@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using Domain; 
+namespace SquareDrawingApp
+{
+    class Program
+    {
+        static void Main()
+        {
+            Drawing drawing = new Drawing();
+            drawing.DrawSquare(5, '*');
+        }
+    }
+}
