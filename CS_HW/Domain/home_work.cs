@@ -1,32 +1,36 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace Domain
+{
+    public class City
     {
-        public class Drawing
+        private string cityName;
+        private string countryName;
+        private int population;
+        private int areaCode;
+        private string[] districts;
+
+        public City(string cityName, string countryName, int population, int areaCode, string[] districts)
         {
-            public void DrawSquare(int sideLength, char symbol)
+            this.cityName = cityName;
+            this.countryName = countryName;
+            this.population = population;
+            this.areaCode = areaCode;
+            this.districts = districts;
+        }
+
+        public void DisplayCityInformation()
+        {
+            Console.WriteLine("City: " + cityName);
+            Console.WriteLine("Country: " + countryName);
+            Console.WriteLine("Population: " + population);
+            Console.WriteLine("Area Code: " + areaCode);
+            Console.WriteLine("Districts:");
+
+            foreach (string district in districts)
             {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
-
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+                Console.WriteLine("- " + district);
             }
         }
     }
+}

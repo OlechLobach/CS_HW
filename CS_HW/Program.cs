@@ -1,13 +1,16 @@
 ﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+using Domain;
+
+namespace MainProject
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            string[] districts = { "District1", "District2", "District3" };
+            City city = new City("CityName", "CountryName", 1000000, 12345, districts);
+
+            city.DisplayCityInformation();
         }
     }
 }
