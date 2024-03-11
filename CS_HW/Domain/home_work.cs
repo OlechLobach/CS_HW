@@ -1,32 +1,70 @@
-﻿    using System;
+﻿using System;
 
-    namespace Domain
+namespace Domain
+{
+    public class Employee
     {
-        public class Drawing
+        private string fullName;
+        private DateTime dateOfBirth;
+        private string contactNumber;
+        private string workEmail;
+        private string position;
+        private string jobDescription;
+
+        public Employee(string fullName, DateTime dateOfBirth, string contactNumber, string workEmail, string position, string jobDescription)
         {
-            public void DrawSquare(int sideLength, char symbol)
-            {
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
+            this.fullName = fullName;
+            this.dateOfBirth = dateOfBirth;
+            this.contactNumber = contactNumber;
+            this.workEmail = workEmail;
+            this.position = position;
+            this.jobDescription = jobDescription;
+        }
 
-                for (int i = 0; i < sideLength - 2; i++)
-                {
-                    Console.Write(symbol + " ");
-                    for (int j = 0; j < sideLength - 2; j++)
-                    {
-                        Console.Write("  ");
-                    }
-                    Console.WriteLine(symbol);
-                }
+        public string FullName
+        {
+            get { return fullName; }
+            set { fullName = value; }
+        }
 
-                for (int i = 0; i < sideLength; i++)
-                {
-                    Console.Write(symbol + " ");
-                }
-                Console.WriteLine();
-            }
+        public DateTime DateOfBirth
+        {
+            get { return dateOfBirth; }
+            set { dateOfBirth = value; }
+        }
+
+        public string ContactNumber
+        {
+            get { return contactNumber; }
+            set { contactNumber = value; }
+        }
+
+        public string WorkEmail
+        {
+            get { return workEmail; }
+            set { workEmail = value; }
+        }
+
+        public string Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
+        public string JobDescription
+        {
+            get { return jobDescription; }
+            set { jobDescription = value; }
+        }
+
+        public void DisplayEmployeeInformation()
+        {
+            Console.WriteLine("Full Name: " + fullName);
+            Console.WriteLine("Date of Birth: " + dateOfBirth.ToShortDateString());
+            Console.WriteLine("Contact Number: " + contactNumber);
+            Console.WriteLine("Work Email: " + workEmail);
+            Console.WriteLine("Position: " + position);
+            Console.WriteLine("Job Description: " + jobDescription);
         }
     }
+}

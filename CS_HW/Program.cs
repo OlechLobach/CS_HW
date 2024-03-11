@@ -1,13 +1,16 @@
 ﻿using System;
-using Domain; 
-namespace SquareDrawingApp
+using Domain;
+
+namespace MainProject
 {
     class Program
     {
         static void Main()
         {
-            Drawing drawing = new Drawing();
-            drawing.DrawSquare(5, '*');
+            DateTime dob = new DateTime(1990, 1, 1);
+            Employee employee = new Employee("John Doe", dob, "123-456-7890", "john.doe@example.com", "Manager", "Manage daily operations");
+
+            employee.DisplayEmployeeInformation();
         }
     }
 }
